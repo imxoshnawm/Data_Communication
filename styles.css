@@ -1,0 +1,1217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #0a192f;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding: 40px;
+    background: #0a192f;
+    color: #e6f1ff;
+}
+
+/* Make the first slide visible by default */
+.slide:first-child {
+    display: block;
+}
+
+.slide-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Network Background Elements */
+.network-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #64ffda;
+    border-radius: 50%;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.connection {
+    position: absolute;
+    height: 2px;
+    background-color: #64ffda;
+    transform-origin: left center;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Title Slide */
+.slide:first-child .slide-content {
+    text-align: center;
+}
+
+.credit-box {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 15px 30px;
+    border: 2px solid #64ffda;
+    border-radius: 8px;
+    background-color: rgba(10, 25, 47, 0.8);
+}
+
+.credit-box p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+    color: #64ffda;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #64ffda;
+    padding-bottom: 10px;
+    font-weight: 600;
+    color: #64ffda;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #ccd6f6;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #8892b0;
+}
+
+.caption {
+    font-size: 1.2rem;
+    color: #64ffda;
+    margin-bottom: 20px;
+}
+
+ul {
+    font-size: 1.5rem;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+li::before {
+    content: "⟫";
+    position: absolute;
+    left: -20px;
+    color: #64ffda;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    background-color: rgba(16, 32, 61, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #64ffda;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+th {
+    background-color: rgba(100, 255, 218, 0.1);
+    font-weight: bold;
+    color: #64ffda;
+}
+
+tr:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    z-index: 3;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: #64ffda;
+    border: 2px solid #64ffda;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 90px;
+}
+
+button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+#slide-counter {
+    font-size: 1.2rem;
+    color: #8892b0;
+    font-weight: bold;
+}
+
+/* Network icon animations */
+.network-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+    animation: pulse 3s infinite;
+}
+
+.router-icon {
+    border: 2px solid #64ffda;
+    border-radius: 5px;
+}
+
+.switch-icon {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #64ffda;
+}
+
+.server-icon {
+    width: 40px;
+    height: 60px;
+    border: 2px solid #64ffda;
+}
+
+.computer-icon {
+    width: 50px;
+    height: 40px;
+    border: 2px solid #64ffda;
+    border-bottom: 10px solid #64ffda;
+}
+
+/* Title emphasis */
+.title-emphasis {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Network diagram */
+.network-diagram {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.network-diagram img {
+    max-width: 100%;
+    max-height: 350px;
+    border-radius: 8px;
+    border: 2px solid #64ffda;
+}
+
+/* Comparison table */
+.comparison-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Area diagram */
+.area-diagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    height: 350px;
+    position: relative;
+}
+
+.area-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid #64ffda;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #64ffda;
+    font-weight: bold;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.pan {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(100, 255, 218, 0.1);
+    z-index: 7;
+}
+
+.lan {
+    width: 120px;
+    height: 120px;
+    background-color: rgba(100, 255, 218, 0.08);
+    z-index: 6;
+}
+
+.can {
+    width: 180px;
+    height: 180px;
+    background-color: rgba(100, 255, 218, 0.06);
+    z-index: 5;
+}
+
+.man {
+    width: 240px;
+    height: 240px;
+    background-color: rgba(100, 255, 218, 0.04);
+    z-index: 4;
+}
+
+.dan {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(100, 255, 218, 0.03);
+    z-index: 3;
+}
+
+.country {
+    width: 360px;
+    height: 360px;
+    background-color: rgba(100, 255, 218, 0.02);
+    z-index: 2;
+}
+
+.wan {
+    width: 420px;
+    height: 420px;
+    background-color: rgba(100, 255, 218, 0.01);
+    z-index: 1;
+}
+
+.note-box {
+    background-color: rgba(100, 255, 218, 0.1);
+    border-left: 4px solid #64ffda;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Enhanced Mobile Responsive CSS */
+@media (max-width: 768px) {
+    .slide {
+        padding: 15px 10px;
+        overflow-y: auto;
+    }
+    
+    .slide-content {
+        height: auto;
+        min-height: 85%;
+        padding-bottom: 70px; /* Space for navigation buttons */
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .caption {
+        font-size: 1rem;
+    }
+    
+    ul {
+        font-size: 1.1rem;
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+    }
+    
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    table {
+        font-size: 0.8rem;
+    }
+    
+    th, td {
+        padding: 8px 6px;
+    }
+    
+    .credit-box {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    .credit-box p {
+        font-size: 0.9rem;
+    }
+    
+    /* Navigation buttons */
+    .navigation-buttons {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    #slide-counter {
+        font-size: 1rem;
+    }
+    
+    /* Network visualization adjustments */
+    .area-diagram {
+        height: 250px;
+        margin: 10px 0;
+    }
+    
+    .area-circle {
+        transform: scale(0.7);
+    }
+    
+    .note-box {
+        padding: 10px;
+        margin: 15px 0;
+    }
+    
+    .note-box p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small mobile phones (less than 480px) */
+@media (max-width: 480px) {
+    .slide {
+        padding: 10px 8px;
+    }
+    
+    h1 {
+        font-size: 1.7rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    ul, p {
+        font-size: 1rem;
+    }
+    
+    table {
+        font-size: 0.7rem;
+    }
+    
+    th, td {
+        padding: 6px 4px;
+    }
+    
+    /* Table scroll for very small screens */
+    .slide-content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    /* Area diagrams adjustments */
+    .area-diagram {
+        height: 200px;
+    }
+    
+    .area-circle {
+        transform: scale(0.5);
+    }
+    
+    .pan { width: 40px; height: 40px; }
+    .lan { width: 80px; height: 80px; }
+    .can { width: 120px; height: 120px; }
+    .man { width: 160px; height: 160px; }
+    .dan { width: 200px; height: 200px; }
+    .country { width: 240px; height: 240px; }
+    .wan { width: 280px; height: 280px; }
+    
+    /* Fix for slides with area diagrams */
+    .slide:nth-child(2) .slide-content {
+        height: auto;
+        min-height: 100%;
+        overflow-y: visible;
+    }
+}
+
+
+/* Enhanced Mobile Responsive CSS */
+
+/* Base Mobile Responsiveness */
+@media (max-width: 768px) {
+    .slide {
+        padding: 15px 10px;
+        overflow-y: auto;
+    }
+    
+    .slide-content {
+        height: auto;
+        min-height: 85%;
+        padding-bottom: 70px; /* Space for navigation buttons */
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .caption {
+        font-size: 1rem;
+    }
+    
+    ul {
+        font-size: 1.1rem;
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+    }
+    
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    table {
+        font-size: 0.8rem;
+    }
+    
+    th, td {
+        padding: 8px 6px;
+    }
+    
+    .credit-box {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    .credit-box p {
+        font-size: 0.9rem;
+    }
+    
+    /* Navigation buttons */
+    .navigation-buttons {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    #slide-counter {
+        font-size: 1rem;
+    }
+    
+    /* Network visualization adjustments */
+    .area-diagram {
+        height: 250px;
+        margin: 10px 0;
+    }
+    
+    .area-circle {
+        transform: scale(0.7);
+    }
+    
+    .note-box {
+        padding: 10px;
+        margin: 15px 0;
+    }
+    
+    .note-box p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small mobile phones (less than 480px) */
+@media (max-width: 480px) {
+    .slide {
+        padding: 10px 8px;
+    }
+    
+    h1 {
+        font-size: 1.7rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    ul, p {
+        font-size: 1rem;
+    }
+    
+    table {
+        font-size: 0.7rem;
+    }
+    
+    th, td {
+        padding: 6px 4px;
+    }
+    
+    /* Table scroll for very small screens */
+    .slide-content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    /* Area diagrams adjustments */
+    .area-diagram {
+        height: 200px;
+    }
+    
+    .area-circle {
+        transform: scale(0.5);
+    }
+    
+    .pan { width: 40px; height: 40px; }
+    .lan { width: 80px; height: 80px; }
+    .can { width: 120px; height: 120px; }
+    .man { width: 160px; height: 160px; }
+    .dan { width: 200px; height: 200px; }
+    .country { width: 240px; height: 240px; }
+    .wan { width: 280px; height: 280px; }
+    
+    /* Fix for slides with area diagrams */
+    .slide:nth-child(2) .slide-content {
+        height: auto;
+        min-height: 100%;
+        overflow-y: visible;
+    }
+}
+
+/* Additional fixes for orientation changes */
+@media (max-height: 500px) and (orientation: landscape) {
+    .slide {
+        overflow-y: auto;
+    }
+    
+    .slide-content {
+        height: auto;
+        min-height: 100%;
+        padding: 10px 0 60px 0;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    ul {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    li {
+        margin-bottom: 5px;
+    }
+    
+    .navigation-buttons {
+        bottom: 5px;
+    }
+}
+
+/* Fix layering issue for network diagrams */
+.network-bg {
+    pointer-events: none;
+}
+
+/* Better touch target for buttons */
+button {
+    min-width: 90px;
+}
+
+/* Fix for the first slide with multiple area diagrams */
+.slide:nth-child(2) .area-diagram {
+    height: auto;
+    margin: 5px 0;
+}
+
+/* Fix for scaling circle arrangements */
+@media (max-width: 768px) {
+    .slide:nth-child(2) .slide-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+    
+    .slide:nth-child(2) .area-diagram {
+        max-height: 60px;
+        margin: 0 0 5px 0;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #0a192f;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding: 40px;
+    background: #0a192f;
+    color: #e6f1ff;
+}
+
+/* Make the first slide visible by default */
+.slide:first-child {
+    display: block;
+}
+
+.slide-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Network Background Elements */
+.network-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #64ffda;
+    border-radius: 50%;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.connection {
+    position: absolute;
+    height: 2px;
+    background-color: #64ffda;
+    transform-origin: left center;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Title Slide */
+.slide:first-child .slide-content {
+    text-align: center;
+}
+
+.credit-box {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 15px 30px;
+    border: 2px solid #64ffda;
+    border-radius: 8px;
+    background-color: rgba(10, 25, 47, 0.8);
+}
+
+.credit-box p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+    color: #64ffda;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #64ffda;
+    padding-bottom: 10px;
+    font-weight: 600;
+    color: #64ffda;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #ccd6f6;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #8892b0;
+}
+
+.caption {
+    font-size: 1.2rem;
+    color: #64ffda;
+    margin-bottom: 20px;
+}
+
+ul {
+    font-size: 1.5rem;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+ 
+    
+    
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #0a192f;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding: 40px;
+    background: #0a192f;
+    color: #e6f1ff;
+}
+
+/* Make the first slide visible by default */
+.slide:first-child {
+    display: block;
+}
+
+.slide-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Network Background Elements */
+.network-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #64ffda;
+    border-radius: 50%;
+}
+
+.connection {
+    position: absolute;
+    height: 2px;
+    background-color: #64ffda;
+    transform-origin: left center;
+}
+
+/* Title Slide */
+.slide:first-child .slide-content {
+    text-align: center;
+}
+
+.credit-box {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 15px 30px;
+    border: 2px solid #64ffda;
+    border-radius: 8px;
+    background-color: rgba(10, 25, 47, 0.8);
+}
+
+.credit-box p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+    color: #64ffda;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #64ffda;
+    padding-bottom: 10px;
+    font-weight: 600;
+    color: #64ffda;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #8892b0;
+}
+
+ul {
+    font-size: 1.5rem;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+li::before {
+    content: "⟫";
+    position: absolute;
+    left: -20px;
+    color: #64ffda;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    background-color: rgba(16, 32, 61, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #64ffda;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+th {
+    background-color: rgba(100, 255, 218, 0.1);
+    font-weight: bold;
+    color: #64ffda;
+}
+
+tr:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    z-index: 3;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: #64ffda;
+    border: 2px solid #64ffda;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+#slide-counter {
+    font-size: 1.2rem;
+    color: #8892b0;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slide {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    ul, p {
+        font-size: 1.2rem;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+/* Network icon animations */
+.network-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+}
+
+.router-icon {
+    border: 2px solid #64ffda;
+    border-radius: 5px;
+}
+
+.switch-icon {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #64ffda;
+}
+
+.server-icon {
+    width: 40px;
+    height: 60px;
+    border: 2px solid #64ffda;
+}
+
+.computer-icon {
+    width: 50px;
+    height: 40px;
+    border: 2px solid #64ffda;
+    border-bottom: 10px solid #64ffda;
+}
+
+/* Icon pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.1); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.2; }
+}
+
+.network-icon {
+    animation: pulse 3s infinite;
+}
+
+/* Title emphasis */
+.title-emphasis {
+    color: #fff;
+    font-weight: bold;
+}
