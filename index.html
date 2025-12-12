@@ -1,0 +1,1613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TURBO USA - Professional Detection Equipment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #000;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b00, #ff8533);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(45deg);
+            border-radius: 5px;
+        }
+
+        .logo-icon span {
+            transform: rotate(-45deg);
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .logo-text h1 {
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #ff6b00;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #ff6b00;
+        }
+
+        .cart-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .cart-btn:hover {
+            color: #ff6b00;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff6b00;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            background: #1a1a1a;
+            border-top: 1px solid #333;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+            transition: background 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            background: #ff6b00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+            color: #fff;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255,107,0,0.1) 0%, transparent 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .hero .description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #999;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ff6b00;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background: #ff8533;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255,107,0,0.4);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background: #f5f5f5;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .section-title p {
+            font-size: 20px;
+            color: #666;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            height: 300px;
+            background: linear-gradient(135deg, #1a1a1a, #000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-info h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .product-info .description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .features h4 {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+            font-size: 18px;
+        }
+
+        .features ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .features li {
+            padding: 6px 0;
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+
+        .features li::before {
+            content: '►';
+            color: #ff6b00;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .applications {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .applications h4 {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+            font-size: 18px;
+        }
+
+        .view-details-btn {
+            background: transparent;
+            color: #ff6b00;
+            padding: 10px 20px;
+            border: 2px solid #ff6b00;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .view-details-btn:hover {
+            background: #ff6b00;
+            color: #fff;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff6b00;
+        }
+
+        .add-cart-btn {
+            background: #000;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-cart-btn:hover {
+            background: #ff6b00;
+            transform: scale(1.05);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ff6b00;
+        }
+
+        .modal h2 {
+            color: #000;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .modal h3 {
+            color: #ff6b00;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .modal p, .modal li {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .modal ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal ul li::before {
+            content: '►';
+            color: #ff6b00;
+            margin-right: 10px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .about-card {
+            text-align: center;
+            padding: 30px;
+            background: #f5f5f5;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .about-card:hover {
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-icon {
+            width: 70px;
+            height: 70px;
+            background: #ff6b00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #fff;
+            font-size: 32px;
+        }
+
+        .about-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .about-card p {
+            color: #666;
+        }
+
+        .about-text {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #000;
+            color: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-card {
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: #ff6b00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #fff;
+            font-size: 32px;
+        }
+
+        .contact-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .hero .subtitle {
+                font-size: 20px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .product-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .price {
+                font-size: 28px;
+            }
+
+            .modal-content {
+                margin: 20px;
+                padding: 25px;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <span>T</span>
+                    </div>
+                    <div class="logo-text">
+                        <h1>TURBO USA</h1>
+                        <p>Professional Detection Equipment</p>
+                    </div>
+                </div>
+<!-- Language Switcher Button - Add this to your header -->
+<div class="language-switcher">
+    <button onclick="switchToArabic()" class="lang-btn">
+        العربية
+    </button>
+</div>
+
+<style>
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+
+.lang-btn {
+    background: linear-gradient(135deg, #ff6b00, #ff8533);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(255,107,0,0.3);
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255,107,0,0.5);
+}
+</style>
+
+<script>
+function switchToArabic() {
+    window.location.href = 'index-arb.html';
+}
+</script>
+                <nav class="desktop-nav">
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <button class="cart-btn" onclick="showCart()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                    </button>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#home" onclick="toggleMobileMenu()">Home</a>
+            <a href="#products" onclick="toggleMobileMenu()">Products</a>
+            <a href="#about" onclick="toggleMobileMenu()">About</a>
+            <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Professional Gold Detection Equipment</h2>
+                <p class="subtitle">At the Best Prices</p>
+                <p class="description">Advanced technology for treasure hunting, archaeological research, and geological exploration</p>
+                <a href="#products" class="cta-btn">
+                    Explore Products
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+<section id="products" class="products">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Products</h2>
+            <p>Professional detection equipment made in USA</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1: Lorenz DeepMax Z2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="product1.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="product-info">
+                    <h3>Lorenz DeepMax Z2</h3>
+                    <p class="description">Highly sensitive to all kinds of metal types with stable operation on mineralized ground or salt water</p>
+                    
+                    <div class="features">
+                        <h4>Device Features:</h4>
+                        <ul>
+                            <li>Pulse Ground Balancing System (Pulse GBS)</li>
+                            <li>Customized LCD display with simple operation</li>
+                            <li>Exact pinpointing with large coils</li>
+                            <li>Waterproof search coils</li>
+                            <li>Data logger functionality with Surfer Software</li>
+                            <li>Battery check with audio alarm tone</li>
+                            <li>Improved ferrous/non-ferrous identification</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Detection of ancient artifacts (statues, swords)</li>
+                            <li>Golden treasure detection (coins, jewelry)</li>
+                            <li>Detection of natural gold and small gold nuggets</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$6,000</span>
+                        <button class="add-cart-btn" onclick="addToCart('Lorenz DeepMax Z2', 6000)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Turbo Scanner 2023 -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="product2.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>Turbo Scanner 2023</h3>
+                    <p class="description">High-performance underground detection system designed for professional users in geology, archaeology, and treasure hunting</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Advanced multi-sensor scanning system</li>
+                            <li>Real-time 3D visualization and depth analysis</li>
+                            <li>High-precision depth measurement</li>
+                            <li>Long-range detection capability</li>
+                            <li>Professional control panel with full-color display</li>
+                            <li>Durable hard protective case for field use</li>
+                            <li>Made in USA - 2023 model</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Geological exploration and mineral detection</li>
+                            <li>Treasure hunting and archaeological research</li>
+                            <li>Underground cavity and tunnel detection</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$7,500</span>
+                        <button class="add-cart-btn" onclick="addToCart('Turbo Scanner 2023', 7500)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Turbo 3D Long Range Gold Finder -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="WhatsApp Image 2025-12-12 at 14.36.12_d6bc35ac.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>Turbo USA 3D Long Range Gold Finder</h3>
+                    <p class="description">Professional device designed for long-distance detection of gold, metals, and underground minerals with multi-antenna system</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>3D Signal & Long-Distance Transmission</li>
+                            <li>Multi-antenna system (A1, A2 main + B1, B2 secondary)</li>
+                            <li>Digital display for signal and battery test</li>
+                            <li>USB port for data or charging</li>
+                            <li>Multi-mode system with memory save function</li>
+                            <li>Adjustable signal strength and frequency</li>
+                            <li>High/Low power selector</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Gold prospecting and treasure hunting</li>
+                            <li>Underground metal searching</li>
+                            <li>Mineral exploration</li>
+                            <li>Professional exploration teams</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$38,000</span>
+                        <button class="add-cart-btn" onclick="addToCart('Turbo 3D Long Range Gold Finder', 38000)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4: Turbo Gold Finder 2023 -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="product4 (1).jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>Turbo Gold Finder 2023</h3>
+                    <p class="description">Compact long-range gold detection system with improved signal stability and upgraded electronics</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Dual-unit design (Transmitter + Receiver)</li>
+                            <li>LCD screen for signal display</li>
+                            <li>Gold/Silver/Mixed mode selector</li>
+                            <li>Adjustable frequency and radar control</li>
+                            <li>Dual antennas for directional detection</li>
+                            <li>Lightweight portable design</li>
+                            <li>Long-range signal booster</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Gold hunting and treasure exploration</li>
+                            <li>Detecting underground metals</li>
+                            <li>Field and outdoor surveys</li>
+                            <li>Mining exploration</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$5,000</span>
+                        <button class="add-cart-btn" onclick="addToCart('Turbo Gold Finder 2023', 5000)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5: OKM Detectors 3D Ground Scanner -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="product5.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>OKM Detectors 3D Ground Scanner</h3>
+                    <p class="description">Advanced 3D ground scanner designed for detecting metals, underground cavities, hidden objects, and archaeological targets</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>3D ground scanning technology</li>
+                            <li>Deep metal detection capabilities</li>
+                            <li>High-resolution display with real-time visualization</li>
+                            <li>Multi-sensor technology</li>
+                            <li>Adjustable and lightweight body</li>
+                            <li>Ferrous/non-ferrous metal distinction</li>
+                            <li>Ergonomic design</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Treasure hunting and archaeology</li>
+                            <li>Professional surveying</li>
+                            <li>Underground exploration</li>
+                            <li>Hidden object detection</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$40,000</span>
+                        <button class="add-cart-btn" onclick="addToCart('OKM 3D Ground Scanner', 40000)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: Minelab Manticore -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="product6.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>MINELAB MANTICORE</h3>
+                    <p class="description">High-Power Multi-IQ+ Waterproof Metal Detector with Advanced Target ID and 11" Double-D Coil</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Multi-IQ+ Technology (50% more power)</li>
+                            <li>Advanced 2D target ID map</li>
+                            <li>Rich audio options and enhanced discrimination</li>
+                            <li>10 Search Modes including All-Terrain, Beach, Goldfield</li>
+                            <li>Waterproof up to 16 ft (IP68)</li>
+                            <li>Light & compact design (folds to 24.8")</li>
+                            <li>Customizable audio controls</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>All-terrain treasure hunting</li>
+                            <li>Beach and underwater detecting</li>
+                            <li>Gold nugget prospecting</li>
+                            <li>Professional metal detection</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$1,299</span>
+                        <button class="add-cart-btn" onclick="addToCart('MINELAB MANTICORE', 1299)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7: Minelab GPZ 7000 -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="product7.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>Minelab GPZ 7000</h3>
+                    <p class="description">Extreme Depth Gold Detector with Super-D Waterproof Coil and ZVT technology</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Super-D coil and ZVT technology for ultimate depth</li>
+                            <li>Precision ground balance for mineralized ground</li>
+                            <li>Waterproof coil submersible to 3 ft (1m)</li>
+                            <li>Simple menu system with enhanced noise immunity</li>
+                            <li>Built-in GPS with location tracking</li>
+                            <li>Wireless headphones and built-in speaker</li>
+                            <li>Google Maps integration via XChange 2</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Deep gold nugget detection</li>
+                            <li>Sub-gram gold finding</li>
+                            <li>River and shoreline prospecting</li>
+                            <li>Professional gold mining</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$9,499</span>
+                        <button class="add-cart-btn" onclick="addToCart('Minelab GPZ 7000', 9499)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8: PQWT Cave Detector -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="product8.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>PQWT Cave Detector KD150</h3>
+                    <p class="description">Professional cavity detector for finding underground metals, gold, mining targets and treasures with 150m depth</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Automatic curve graph and profile map drawing</li>
+                            <li>150m detection depth capability</li>
+                            <li>Intuitive LCD display with backlight</li>
+                            <li>Suitable for all terrain types</li>
+                            <li>2 years warranty included</li>
+                            <li>Lightweight and portable design</li>
+                            <li>Rechargeable battery system</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Cave and cavity detection</li>
+                            <li>Mining exploration</li>
+                            <li>Treasure hunting</li>
+                            <li>Outdoor activities and surveying</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$2,818</span>
+                        <button class="add-cart-btn" onclick="addToCart('PQWT Cave Detector KD150', 2818)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 9: Professional Metal Detector Kit -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="product9.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>Professional Metal Detector Kit</h3>
+                    <p class="description">High accuracy gold, silver & copper finder with 1000m search range and 30m depth detection</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>1000m search range capability</li>
+                            <li>30m depth detection</li>
+                            <li>HD screen display</li>
+                            <li>High sensitivity with stability</li>
+                            <li>Adjustable frequency regulator (5.6-6KHz)</li>
+                            <li>Precise positioning system</li>
+                            <li>Long range search system</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Gems and treasure hunting</li>
+                            <li>Gold, silver, copper detection</li>
+                            <li>Precious stone finding</li>
+                            <li>Professional exploration</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$1,228</span>
+                        <button class="add-cart-btn" onclick="addToCart('Professional Metal Detector Kit', 1228)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 10: Portable Metal Detector Pinpointer -->
+            <div class="product-card">
+<div class="product-image">
+  <img src="product10.jpg" alt="Lorenz DeepMax Z2" style="width:100%; height:100%; object-fit:cover;">
+</div>                <div class="product-info">
+                    <h3>Portable Metal Detector Pinpointer</h3>
+                    <p class="description">Accurate gold, silver & gem finder with LED screen, 0-16m depth, and voice alerts</p>
+                    
+                    <div class="features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>LED screen display</li>
+                            <li>0-16m depth detection</li>
+                            <li>Voice alert system</li>
+                            <li>Remote sensing technology</li>
+                            <li>1000m long range capability</li>
+                            <li>Lightweight design (3.2kg)</li>
+                            <li>Waterproof storage box</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications">
+                        <h4>Applications:</h4>
+                        <ul>
+                            <li>Precision gold scanning</li>
+                            <li>Treasure locating</li>
+                            <li>Outdoor exploration</li>
+                            <li>Camping and traveling</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="product-footer">
+                        <span class="price">$1,228</span>
+                        <button class="add-cart-btn" onclick="addToCart('Portable Metal Detector Pinpointer', 1228)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About TURBO USA</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🔍</div>
+                    <h3>Advanced Technology</h3>
+                    <p>Cutting-edge detection systems for professional use</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🛒</div>
+                    <h3>Best Prices</h3>
+                    <p>Competitive pricing on all professional equipment</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🇺🇸</div>
+                    <h3>Made in USA</h3>
+                    <p>Quality American manufacturing you can trust</p>
+                </div>
+            </div>
+
+            <p class="about-text">
+                TURBO USA specializes in providing professional-grade detection equipment for treasure hunters, 
+                archaeologists, geologists, and exploration professionals. Our products combine advanced technology 
+                with reliable performance to help you discover what lies beneath the surface.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+
+            <div class="contact-grid">
+                
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>info@turbousa.com</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>United States</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2015 TURBO USA. All rights reserved.</p>
+            <p>Professional gold detection equipment at the best prices</p>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+   const productDetails = {
+    lorenz: `
+        <h2>Lorenz DeepMax Z2 - Complete Specifications</h2>
+        
+        <h3>Device Features</h3>
+        <ul>
+            <li>Highly sensitive to all kinds of metal types</li>
+            <li>Stable operation on mineralized ground or salt water</li>
+            <li>Reliable and simple operation with few controls</li>
+            <li>Customized LCD display</li>
+            <li>Exact pinpointing with large coils</li>
+            <li>Very easy and effective detection of large areas</li>
+            <li>Small unwanted metal objects can be identified or eliminated</li>
+            <li>Fast audio response speed with different settings</li>
+            <li>Logarithmic audio response and intensity bar graph reading</li>
+            <li>Battery check with audio alarm tone</li>
+            <li>Improved ferrous/non-ferrous identification</li>
+            <li>Stable static response (acoustical and visual)</li>
+            <li>Waterproof search coils</li>
+        </ul>
+
+        <h3>Search Coil System</h3>
+        <p>Different search coils can be connected to the Lorenz Deep Max Z2 for special search and location purposes. Small search coils offer great detection depths on small metal objects, while large search coils offer the highest possible detection depths on big objects. Detection depths depend on detector settings, metal type, object shape, and ground type.</p>
+
+        <h3>Data Logger & Software</h3>
+        <p>The Data Logger unit combines hardware and software developed by Lorenz Detecting Systems. It features:</p>
+        <ul>
+            <li>Easy to use, accurate, and affordable</li>
+            <li>Multi-channel data logger functionality</li>
+            <li>Simultaneous recording of different data channels</li>
+            <li>Stores information into memory</li>
+            <li>Scientific Surfer Software for data transformation</li>
+            <li>Generates color, contour, surface, image, or vector maps</li>
+            <li>Lorenz Scripter Software automatically generates twelve maps (six 2D and six 3D)</li>
+        </ul>
+
+        <h3>Uses & Applications</h3>
+        <ul>
+            <li>Locate buried relics made of gold, silver, and bronze</li>
+            <li>Detection of ancient artifacts (statues, swords)</li>
+            <li>Golden treasure detection (coins, jewelry, rings)</li>
+            <li>Detection of natural gold and small gold nuggets</li>
+        </ul>
+
+        <h3>Search Technology</h3>
+        <p>The Lorenz Deep Max Z2 uses Pulse Induction technology called Pulse Ground Balancing System (Pulse GBS). The system emits short intensive magnetic pulses through copper coils, producing eddy currents in conducting materials. These eddy currents persist after the magnetic pulse ends, allowing detection during the receiving phase.</p>
+        
+        <p>The Pulse GBS is especially suitable for deep searching and is virtually unaffected by salt water, mineralized grounds, or temperature changes. Power PST (Pulse Shaping Technology) enhances performance and depth capabilities. Complete power management with efficient low electromagnetic interference converters and low self-discharge batteries ensures flexible worldwide operation.</p>
+
+        <h3>Price: $6,000</h3>
+    `,
+    turbo: `
+        <h2>Turbo Scanner 2023 - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>The Turbo Scanner 2023 is a high-performance underground detection system designed for professional users in geology, archaeology, and treasure hunting. Built with advanced sensors and a powerful analysis unit, it delivers highly accurate readings of subsurface structures, minerals, and hidden objects.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>Advanced multi-sensor scanning system for accurate underground detection</li>
+            <li>3D graphical imaging with real-time analysis</li>
+            <li>High-precision depth measurement for all types of targets</li>
+            <li>Long-range detection capability</li>
+            <li>Professional control panel with full-color display</li>
+            <li>Durable hard protective case for field use</li>
+            <li>Made in USA - 2023 model</li>
+        </ul>
+
+        <h3>Technology</h3>
+        <p>This device provides real-time 3D visualization, depth analysis, and detailed geological mapping. The advanced sensor array can detect mineral deposits, underground cavities, archaeological remains, and metallic objects at various depths with exceptional accuracy.</p>
+
+        <h3>Design & Durability</h3>
+        <p>The rugged hard-case design ensures durability and reliability in all field conditions. The professional-grade construction makes it suitable for demanding environments and long-term field use.</p>
+
+        <h3>Applications</h3>
+        <ul>
+            <li>Geological exploration</li>
+            <li>Mineral detection</li>
+            <li>Treasure hunting</li>
+            <li>Archaeological research</li>
+            <li>Underground cavity and tunnel detection</li>
+        </ul>
+
+        <h3>Display & Interface</h3>
+        <p>The professional control panel features a full-color display that provides clear, real-time visualization of underground structures and detected objects. The intuitive interface makes complex data easy to interpret in the field.</p>
+
+        <h3>Price: $7,500</h3>
+    `,
+    turbo3d: `
+        <h2>Turbo USA 3D Long Range Gold Finder - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>The Turbo USA 3D Long Range Gold Detector is a professional device designed for long-distance detection of gold, metals, and underground minerals. Built with a user-friendly interface and multiple adjustable modes, it provides accurate directional scanning and strong signal transmission.</p>
+
+        <h3>Technical Specifications</h3>
+        <ul>
+            <li><strong>Model:</strong> Turbo USA 3D</li>
+            <li><strong>Production Year:</strong> 2021</li>
+            <li><strong>Detection Type:</strong> Long Range Locator (Gold – Metals – Minerals)</li>
+            <li><strong>Technology:</strong> 3D Signal & Long-Distance Transmission</li>
+        </ul>
+
+        <h3>Features</h3>
+        <ul>
+            <li>Power switch with LED indicator</li>
+            <li>Digital display for reading signal and battery test</li>
+            <li>USB port for data or charging</li>
+            <li>Multi-mode system (MODE button)</li>
+            <li>Memory save function (SAVE)</li>
+            <li>Adjustable signal strength (UP / DOWN)</li>
+            <li>SEND function to transmit scanning signal</li>
+            <li>Battery test feature (TEST.BAT)</li>
+            <li>Two adjustable knobs for signal sensitivity & frequency</li>
+            <li>High/Low power selector (H / L)</li>
+        </ul>
+
+        <h3>Antenna & Ports</h3>
+        <ul>
+            <li><strong>A1, A2:</strong> Main antenna ports</li>
+            <li><strong>B1, B2:</strong> Secondary antenna ports</li>
+            <li><strong>DC-IN:</strong> Charging port</li>
+        </ul>
+
+        <h3>Detection Range</h3>
+        <ul>
+            <li><strong>Distance:</strong> Up to several hundred meters (depending on terrain)</li>
+            <li><strong>Depth:</strong> Varies based on soil and target type</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+            <li>Gold prospecting</li>
+            <li>Underground metal searching</li>
+            <li>Mineral exploration</li>
+            <li>Treasure hunting</li>
+        </ul>
+
+        <h3>Price: $38,000</h3>
+    `,
+    goldfinder2023: `
+        <h2>Turbo Gold Finder 2023 - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>The Turbo Gold Finder 2023 is a compact long-range gold detection system designed for users who need fast, directional scanning for underground gold and metals. With improved signal stability and upgraded electronics, the 2023 version delivers more accurate long-distance detection.</p>
+
+        <h3>Technical Specifications</h3>
+        <ul>
+            <li><strong>Model:</strong> Turbo Gold Finder 2023</li>
+            <li><strong>Detection Type:</strong> Long Range Locator (Gold – Metals – Minerals)</li>
+            <li><strong>System Components:</strong> TX Unit (Transmitter) + RX Unit (Receiver)</li>
+        </ul>
+
+        <h3>Features</h3>
+        <ul>
+            <li>LCD screen for signal display</li>
+            <li>Main power switch (ON/OFF)</li>
+            <li>Gold / Silver / Mixed mode selector</li>
+            <li>Adjustable frequency and radar control</li>
+            <li>Dual antennas for directional detection</li>
+            <li>Battery level indicator</li>
+            <li>Lightweight portable design</li>
+            <li>Radar ON/OFF switch</li>
+            <li>Long-range signal booster</li>
+            <li>External sensor port (EXT-P)</li>
+        </ul>
+
+        <h3>Detection Capabilities</h3>
+        <ul>
+            <li><strong>Distance:</strong> Up to several hundred meters (varies by land)</li>
+            <li><strong>Depth:</strong> Varies based on soil and target size</li>
+            <li>Field scanning with directional guidance</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+            <li>Gold hunting</li>
+            <li>Treasure exploration</li>
+            <li>Detecting underground metals</li>
+            <li>Field and outdoor surveys</li>
+        </ul>
+
+        <h3>Price: $5,000</h3>
+    `,
+    okm3d: `
+        <h2>OKM Detectors 3D Ground Scanner - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>This professional-grade device is an advanced 3D ground scanner designed for detecting metals, underground cavities, hidden objects, and archaeological targets at significant depths. It features a wide scanning sensor, an adjustable shaft, and a high-resolution display that provides real-time analysis of the scanned area.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>3D ground scanning technology</li>
+            <li>Deep metal detection capabilities</li>
+            <li>High-resolution display with real-time visualization</li>
+            <li>Adjustable and lightweight body for easy field use</li>
+            <li>Multi-sensor technology</li>
+            <li>Ergonomic design</li>
+        </ul>
+
+        <h3>Technology</h3>
+        <p>The system uses multi-sensor technology to identify different types of metals and distinguish between ferrous and non-ferrous objects. With its ergonomic design and powerful detection capabilities, it is ideal for treasure hunters, archaeologists, and professionals working in surveying or underground exploration.</p>
+
+        <h3>Applications</h3>
+        <ul>
+            <li>Treasure hunting</li>
+            <li>Archaeological research</li>
+            <li>Professional surveying</li>
+            <li>Underground exploration</li>
+            <li>Hidden object detection</li>
+        </ul>
+
+        <h3>Design</h3>
+        <p>The adjustable shaft and lightweight construction make it comfortable for extended field use, while the high-resolution display provides clear visualization of detected objects and underground structures.</p>
+
+        <h3>Price: $40,000</h3>
+    `,
+    manticore: `
+        <h2>MINELAB MANTICORE - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>High-Power Multi-IQ+ Waterproof Metal Detector for Adults with Advanced Target ID (11" Double-D Coil Included)</p>
+
+        <h3>Key Technology</h3>
+        <ul>
+            <li><strong>Multi-IQ+ TECHNOLOGY:</strong> Minelab's revolutionary Multi-IQ+ technology has 50% more power than traditional models and is the highest-powered simultaneous multi-frequency machine on the market.</li>
+            <li><strong>Advanced Target ID:</strong> Hear and see your targets thanks to the advanced 2D target ID map and rich audio options. Enhanced discrimination allows you to quickly and accurately find your desired targets amongst trash.</li>
+        </ul>
+
+        <h3>Features</h3>
+        <ul>
+            <li><strong>ALL TERRAIN:</strong> Search every type of terrain thanks to 10 Search Modes including All-Terrain for inland detecting, Beach for sand, surf and seawater zones and Goldfield for gold nuggets.</li>
+            <li><strong>Waterproof:</strong> This treasure finder is waterproof up to 16 ft (IP68).</li>
+            <li><strong>LIGHT & COMPACT:</strong> Easily use this professional metal detector equipment for long periods thanks to the ultra-lightweight, compact design that folds down from 56.7" to 24.8".</li>
+            <li><strong>AUDIO & LIGHTING:</strong> Customizable audio controls help identify targets confidently and reduce noise. The daylight may have ended, but that doesn't mean your hunt has to with features like a flashlight, handgrip vibration, display and keypad backlight.</li>
+        </ul>
+
+        <h3>Coil System</h3>
+        <p>Comes with 11" Double-D coil for optimal performance across all target types and terrain conditions.</p>
+
+        <h3>Applications</h3>
+        <ul>
+            <li>All-terrain treasure hunting</li>
+            <li>Beach and underwater detecting</li>
+            <li>Gold nugget prospecting</li>
+            <li>Professional metal detection</li>
+            <li>Trash discrimination in hunted areas</li>
+        </ul>
+
+        <h3>Price: $1,299</h3>
+    `,
+    gpz7000: `
+        <h2>Minelab GPZ 7000 - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>Extreme Depth Gold Detector for Adults with Super-D Waterproof Coil</p>
+
+        <h3>Ultimate Depth Technology</h3>
+        <ul>
+            <li><strong>ULTIMATE DEPTH:</strong> Go deeper than ever before thanks to the advanced Super-D coil and ZVT technology. This metal detector is specially engineered for deeper detection so you can find both sub-gram gold and "retirement nuggets" buried deep beneath the ground.</li>
+            <li><strong>Precision Ground Balance:</strong> This gold finder automatically weeds out interference from mineralized ground so you can accurately find more gold in even the most severe ground conditions.</li>
+        </ul>
+
+        <h3>Features</h3>
+        <ul>
+            <li><strong>Waterproof Coil:</strong> Don't stop your search at the beach or the bank. The GPZ 14 coil is waterproof and submersible up to 3 ft (1 m) so you can strike gold in rivers, on shorelines and in rainy, wet conditions.</li>
+            <li><strong>Easy to Use:</strong> The simple menu system and enhanced noise immunity allow for smooth, quiet detecting without distractions. Choose between your favorite headphones, the supplied wireless headphones or the built-in speaker to freely detect.</li>
+            <li><strong>BUILT-IN GPS:</strong> See your location and log gold finds as you detect. With the built-in GPS you'll cover more ground and never miss a nugget. Save your favorite "hot spots" to XChange 2 with Google Maps.</li>
+        </ul>
+
+        <h3>Super-D Coil Technology</h3>
+        <p>The advanced Super-D coil technology provides exceptional depth penetration while maintaining sensitivity to small gold pieces, making it perfect for both sub-gram gold and large nugget detection.</p>
+
+        <h3>Applications</h3>
+        <ul>
+            <li>Deep gold nugget detection</li>
+            <li>Sub-gram gold finding</li>
+            <li>River and shoreline prospecting</li>
+            <li>Professional gold mining</li>
+            <li>GPS mapping of finds</li>
+        </ul>
+
+        <h3>Price: $9,499</h3>
+    `,
+    pqwt: `
+        <h2>PQWT Cave Detector KD150 - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>The PQWT-KD series cavity detector is the latest cavity locator detector in the world, offering power and ease of use. Its small size and accuracy will bring the best results for treasure detection and geological exploration.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Treasure detector:</strong> Can automatically draw curve graph and profile map with one button</li>
+            <li><strong>Detection depth:</strong> 50m/150m/300m depth options available</li>
+            <li><strong>Intuitive LCD Display:</strong> Exclusive display backlit screen gives immediate detection motion</li>
+            <li><strong>2 years warranty:</strong> Guarantee at service network within 2 years after purchase</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <p>Be suitable for plain, hill, mountain land, highland, basin - all kinds of geologic structure applications. A good helper for outdoor activities such as camping, climbing, exploring, traveling, and treasure hunting.</p>
+
+        <h3>Technology</h3>
+        <p>According to the profile map, you can clearly understand the geological structure and quickly determine the location of ore body (seam), hollow (cave), etc. The device offers efficient detection and saves time.</p>
+
+        <h3>Detection Capabilities</h3>
+        <ul>
+            <li><strong>Maximum Depth:</strong> 150m</li>
+            <li><strong>Terrain Compatibility:</strong> All terrain types</li>
+            <li><strong>Display:</strong> Backlit LCD screen</li>
+            <li><strong>Power:</strong> Rechargeable battery system</li>
+        </ul>
+
+        <h3>Price: $2,818</h3>
+    `,
+    profkit: `
+        <h2>Professional Metal Detector Kit - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>High Accuracy Gold, Silver & Copper Finder with remarkable search range and detection depth, ideal for gems and treasure hunting.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Discover Hidden Treasures:</strong> Designed for effective searching of Gold, Silver, Copper, and Precious Stones</li>
+            <li><strong>Search Range:</strong> 1000 meters</li>
+            <li><strong>Detection Depth:</strong> Up to 30 meters</li>
+            <li><strong>HD Screen:</strong> High-resolution display for clear readings</li>
+        </ul>
+
+        <h3>Performance</h3>
+        <ul>
+            <li><strong>High Sensitivity:</strong> Excellent sensitivity and stability with precise identification of various metal types</li>
+            <li><strong>Frequency:</strong> Launch frequency 5.6 - 6KHz with adjustable frequency regulator</li>
+            <li><strong>Simple Operation:</strong> Robust core design for enhanced accuracy with modular operation</li>
+            <li><strong>Precise Positioning:</strong> Premium long range search system and precise positioning detection system</li>
+        </ul>
+
+        <h3>Technology</h3>
+        <p>Breaks through traditional detection methods with advanced Remote Sensing Technology and sophisticated signal processing algorithms.</p>
+
+        <h3>Applications</h3>
+        <ul>
+            <li>Gems and treasure hunting</li>
+            <li>Gold, silver, copper detection</li>
+            <li>Precious stone finding</li>
+            <li>Professional exploration</li>
+            <li>Outdoor adventure activities</li>
+        </ul>
+
+        <h3>User Friendly</h3>
+        <p>Perfect for beginners and enthusiasts alike, offering reliable performance in various applications with powerful functionality and simple operation.</p>
+
+        <h3>Price: $1,228</h3>
+    `,
+    pinpointer: `
+        <h2>Portable Metal Detector Pinpointer - Complete Specifications</h2>
+        
+        <h3>Overview</h3>
+        <p>Accurate Gold, Silver & Gem Finder with LED Screen, featuring advanced detection capabilities for treasure hunting enthusiasts.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>LED Screen:</strong> Clear display for target identification</li>
+            <li><strong>Detection Depth:</strong> 0-16m for various target sizes</li>
+            <li><strong>Voice Alerts:</strong> Audio notification system</li>
+            <li><strong>Compact Design:</strong> Lightweight and portable treasure hunting tool</li>
+        </ul>
+
+        <h3>Advanced Technology</h3>
+        <ul>
+            <li><strong>Long Range Capability:</strong> Up to 1000 meters search range</li>
+            <li><strong>Remote Sensing Technology:</strong> Advanced detection system for buried treasures</li>
+            <li><strong>Precision Gold Scanner:</strong> Hydraulic sensing system with collapsible antenna</li>
+            <li><strong>Depth Measurement:</strong> Accurate depth readings up to 20 meters</li>
+        </ul>
+
+        <h3>Design Features</h3>
+        <ul>
+            <li><strong>Portable:</strong> Lightweight unit (approx. 3.2kg)</li>
+            <li><strong>Waterproof Storage:</strong> Includes waterproof storage box</li>
+            <li><strong>Power System:</strong> Rechargeable 12V battery with 10-12 hours charging time</li>
+            <li><strong>User Interface:</strong> Metal type indicators and depth measurement display</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+            <li>Precision gold scanning</li>
+            <li>Treasure locating</li>
+            <li>Outdoor exploration</li>
+            <li>Camping and traveling</li>
+            <li>Historical site exploration</li>
+        </ul>
+
+        <h3>Price: $1,228</h3>
+    `
+};
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            updateCartCount();
+            alert(`${productName} added to cart!`);
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            if (cart.length > 0) {
+                cartCount.textContent = cart.length;
+                cartCount.style.display = 'flex';
+            } else {
+                cartCount.style.display = 'none';
+            }
+        }
+
+        function showCart() {
+            if (cart.length === 0) {
+                alert('Your cart is empty');
+            } else {
+                let cartMessage = 'Items in cart:\n\n';
+                let total = 0;
+                cart.forEach((item, index) => {
+                    cartMessage += `${index + 1}. ${item.name} - $${item.price.toLocaleString()}\n`;
+                    total += item.price;
+                });
+                cartMessage += `\nTotal: $${total.toLocaleString()}`;
+                alert(cartMessage);
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
